@@ -1,0 +1,27 @@
+def text_stats(filename):
+    alphanumeric = 0
+    words = 0
+    lines = 0
+    file = open(filename)
+    contents = file.read()
+    for i in range(0,len(contents)):
+        if contents[i].isalnum():
+            alphanumeric += 1
+    
+    for i in range(0,len(contents)):
+        if contents[i].isalnum() == False and contents[i-1].isalnum():
+            words += 1
+
+    file.close()
+    file = open(filename)
+    for i in range(0,len(contents)):
+        line = file.readline()
+        for j in range(0,len(line)):
+            if line[j].isalnum():
+                lines += 1
+                break
+
+    if len(contents) > 0:
+        if contents[-1].isalnum():
+            words+= 1
+    file.close()
