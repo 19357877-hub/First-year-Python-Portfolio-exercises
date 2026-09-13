@@ -1,0 +1,18 @@
+def find_free_slots(individual_slots):
+  free_slots = []
+  dates = []
+  uniqueDates = {'placeholder',}
+  numOfArrays = len(individual_slots)
+  for i in range(0,numOfArrays):
+    dates += (individual_slots[i])
+  for i in range(0,len(dates)):
+    uniqueDates.add(dates[i])
+  uniqueDates.remove('placeholder')
+  for num in uniqueDates:
+    counter = 0
+    for j in range(0,len(dates)):
+      if dates[j] == num:
+        counter += 1
+    if counter == numOfArrays:
+      free_slots.append(num)
+  return free_slots
