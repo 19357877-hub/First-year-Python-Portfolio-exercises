@@ -1,0 +1,10 @@
+num = 0
+newNums = []
+while num != -1:
+  num = int(input("Enter an unsigned integer (or -1 to finish): "))
+  newNums.append(num)
+num = 0
+print("Cumulative values:")
+for i in range(0,len(newNums) - 1):
+  num += newNums[i]
+  print(num)
