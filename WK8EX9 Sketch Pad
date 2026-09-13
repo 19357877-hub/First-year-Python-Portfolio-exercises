@@ -1,0 +1,18 @@
+def click_handler(event):
+  global last_x, last_y
+  xcen = event.x 
+  ycen = event.y
+  if last_x != -1 and last_y != -1:
+    canvas.create_line(last_x,last_y,xcen,ycen)
+  last_x = xcen
+  last_y = ycen
+
+if __name__ == "__main__":
+  last_x = -1
+  last_y = -1
+  root = Tk()
+  canvas = Canvas(root,width=500,height = 500)
+  canvas.pack()
+  canvas.bind('<Button-1>',click_handler)
+  root.resizable(width=False, height=False)
+  root.mainloop()
