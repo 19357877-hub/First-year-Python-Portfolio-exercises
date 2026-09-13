@@ -1,0 +1,9 @@
+def words_ending_with(filename,suffix):
+  file = open(filename)
+  contents = file.read()
+  contents = contents.split()
+  suffixedWords = []
+  for i in range(0,len(contents)):
+    if contents[i].endswith(suffix):
+      suffixedWords.append(contents[i])
+  return suffixedWords
