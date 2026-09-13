@@ -1,0 +1,14 @@
+event_a_start = int(input("Enter start hour for event A: "))
+event_a_duration = int(input("Enter duration of event A (in hours): "))
+event_b_start = int(input("Enter start hour for event B: "))
+event_b_duration = int(input("Enter duration of event B (in hours): "))
+if event_a_start < event_b_start:
+    if (event_a_start + event_a_duration) > event_b_start:
+        print("Events overlap")
+    else:
+        print("Events do not overlap")
+else:
+    if (event_b_start + event_b_duration) > event_a_start:
+        print("Events overlap")
+    else:
+        print("Events do not overlap")
