@@ -1,0 +1,11 @@
+command = ""
+words = []
+while command != "quit":
+  command = str(input("Your command: "))
+  phrase = command.split()
+  if phrase[0] == "add":
+    words.append(phrase[1])
+  elif phrase[0] == "find":
+    for i in range(0,len(words)):
+      if phrase[1] in words[i]:
+        print(words[i])
