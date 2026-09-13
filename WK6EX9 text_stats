@@ -25,3 +25,6 @@ def text_stats(filename):
         if contents[-1].isalnum():
             words+= 1
     file.close()
+    stats = [alphanumeric,words,lines]
+    return stats
+
