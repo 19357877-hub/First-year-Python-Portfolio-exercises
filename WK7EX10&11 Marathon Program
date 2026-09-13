@@ -1,0 +1,54 @@
+def read_file(filename):
+    list = []
+    file = open(filename)
+    contents = file.readline()
+    while contents != "":
+      dict = {"id":'',"time":'','firstname':'','lastname':''}
+      counter = 0
+      id = ''
+      time = ''
+      firstname = ''
+      lastname = ''
+      while contents[counter] != ',':
+        id += str(contents[counter])
+        counter += 1
+      counter += 1
+      while contents[counter] != ',':
+        time += str(contents[counter])
+        counter += 1
+      counter += 1
+      while contents[counter] != ',':
+        firstname += contents[counter]
+        counter += 1
+      counter += 1
+      while contents[counter] != ',':
+        lastname += contents[counter]
+        counter += 1
+      dict['id'] = id
+      dict['time'] = time
+      dict['firstname'] = firstname
+      dict['lastname'] = lastname
+      list.append(dict)
+      contents = file.readline()
+    file.close()
+    return list
+
+def get_interval_data(start_secs, end_secs, results):
+    count = 0
+    total = 0
+    mean = 0
+    for i in range(0,len(results)):
+      dict = results[i]
+      time = dict['time']
+      seconds = (int(time[0])*36000)
+      seconds += (int(time[1])*3600)
+      seconds += (int(time[3])*600)
+      seconds += (int(time[4])*60)
+      seconds += (int(time[6])*10)
+      seconds += (int(time[7]))
+      if start_secs <= seconds <= end_secs:
+        count += 1
+        total += seconds
+    if count != 0:
+      mean = total/count
+    return {'count':count, 'mean':mean}
