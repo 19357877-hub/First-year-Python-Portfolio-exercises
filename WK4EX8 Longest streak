@@ -1,0 +1,11 @@
+def longest_streak(word,word_list):
+  longest = 0
+  current = 0
+  for i in range(0,len(word_list)):
+    if word_list[i] == word:
+      current += 1
+    else:
+      current = 0
+    if current > longest:
+      longest = current
+  return longest
