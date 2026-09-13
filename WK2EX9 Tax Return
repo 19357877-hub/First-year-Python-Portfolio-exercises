@@ -1,0 +1,7 @@
+self_employment = int(input("Enter income from self employment: "))
+dividends = int(input("Enter income from dividends, savings, and investments: "))
+capital_gains = int(input("Enter capital gains: "))
+if self_employment > 1000 or dividends > 10000 or capital_gains > 3000:
+    print("yes")
+else:
+    print("maybe")
